@@ -34,6 +34,9 @@ Route::post('/getgoodsattrnum','Index\PartController@getgoodsattrnum');
 Route::post('/getgoodsnum','Index\PartController@getgoodsnum');
 Route::post('/addcart','Index\CartController@addcart');
 Route::get('/cartlist','Index\CartController@cartlist');
+Route::post('/delcart','Index\CartController@delcart');
+Route::post('/delcartall','Index\CartController@delcartall');
+
 Route::get('/getendprice','Index\CartController@getendprice');
 Route::get('/address','Index\AddressController@address');
 Route::get('/getsondata','Index\AddressController@getsondata');

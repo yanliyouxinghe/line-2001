@@ -87,7 +87,6 @@ class CartController extends Controller
 
         }
 
-
         //购物车列表
         public function cartlist(){
             $user_id = session()->get('user_id');
@@ -163,7 +162,23 @@ class CartController extends Controller
         
 
         }
-      
+        //删除购物车单条数据
+           public function delcart()
+          {
+            $user_id = session()->get('user_id');
+            $cart_id = request()->all();
+            if(!$cart_id){
+              return json_encode(['code'=>6666,'msg'=>'操作繁忙']);exit;
+            }
+            foreach ($cart_id as $k=>$v){
+              $isdel = CartModel::destroy($v);
+            }
+            if($isdel){
+              return json_encode(['code'=>0,'msg'=>'OK']);exit;
+            }else{
+              return json_encode(['code'=>1111,'msg'=>'请重试']);exit;
+            }
+          }
 
         }
 

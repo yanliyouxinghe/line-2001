@@ -47,7 +47,7 @@
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
 								
-									<input type="checkbox" name="" class="click_bin" id="" goods_id="{{$v->goods_id}}" value="{{$v->cart_id}}" />
+									<input type="checkbox" name="" class="click_bin" id="" cart_id="{{$v->cart_id}}" goods_id="{{$v->goods_id}}" value="{{$v->cart_id}}" />
 									<input type="hidden"  class="goods_attr" @if(isset($v->goods_attr_id)) goods_attr_id="{{$v->goods_attr_id}}" @endif>
 								</li>
 								<li class="yui3-u-11-24">
@@ -74,8 +74,8 @@
 								</li>
 								<li class="yui3-u-1-8"><span class="sum">{{$v->xiaoji}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="#none">删除</a><br />
-									<a href="#none">移到我的关注</a>
+									<a href="javascript:void(0)" class="del" cart_id ="{{$v->cart_id}}">删除</a>
+									<!-- <a href="#none">移到我的关注</a> -->
 								</li>
 							</ul>
 						</div>
@@ -88,11 +88,11 @@
 			</div>
 			<div class="cart-tool">
 				<div class="select-all">
-					<input type="checkbox" name="" id="" value="" class="check_bin" />
+					<input type="checkbox" name=""  value="" class="check_bin" />
 					<span>全选</span>
 				</div>
 				<div class="option">
-					<a href="#none">删除选中的商品</a>
+					<a href="javascript:void(0)" class="delall"> 删除选中的商品</a>
 					<a href="#none">移到我的关注</a>
 					<a href="#none">清除下柜商品</a>
 				</div>
@@ -109,7 +109,7 @@
 			</div>
 			<div class="clearfix"></div>
 			<div class="deled">
-				<span>已删除商品，您可以重新购买或加关注：</span>
+				<!-- <span>已删除商品，您可以重新购买或加关注：</span>
 				<div class="cart-list del">
 					<ul class="goods-list yui3-g">
 						<li class="yui3-u-1-2">
@@ -126,7 +126,7 @@
 							<a href="#none">移到我的关注</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 			<div class="liked">
 				<ul class="sui-nav nav-tabs">
@@ -402,6 +402,11 @@
 <script type="text/javascript">
 	//加号
 	$('.plus').click(function(){
+		var cart = new Array();
+		$('.click_bin:checked').each(function(){
+			cart.push($(this).val());
+		});
+		getpricce(cart);
 		var _this = $(this);
 		var buy_nun  = _this.prev().val();
 		var cart_id = _this.parents('ul').find('.click_bin').val();
@@ -413,6 +418,11 @@
 
 	//减号
 	$(document).on('click','.mins',function(){
+		var cart = new Array();
+		$('.click_bin:checked').each(function(){
+			cart.push($(this).val());
+		});
+		getpricce(cart);
 		var _this = $(this);
 		var buy_nun  = _this.next().val();
 		var cart_id = _this.parents('ul').find('.click_bin').val();
@@ -423,6 +433,7 @@
 		var number = parseInt(buy_nun-1);
 		_this.next().val(number);
 		getxiaoji(_this,cart_id,number);
+		
 	});
 		
 		//计算小计
@@ -522,5 +533,57 @@
 		location.href="/address?cart_id="+cart_id+"&"+"goods_id="+goods_id;
 	});
 
+	$(document).on('click','.del',function(){
+		var _this = $(this);
+		var cart_id = _this.attr('cart_id');
+		if(!cart_id){
+			return;
+		}
+		if(confirm('确定要删除此条商品吗？')){
+			$.ajax({
+				url : '/delcart',
+				dataType : 'json',
+				type:'post',
+				data:{cart_id:cart_id},
+				success:function(ret){
+					if(ret.code == 0){
+						_this.parent().parent().remove();
+					}else{
+						alert(ret.msg);
+					}
+				}
+			});
+		}else{
+			return false;
+		}
+	});
 
+	$(document).on('click','.delall',function(){
+		var _this = $(this);
+		var cart_id = new Array();
+		$('.click_bin:checked').each(function(){
+			cart_id.push($(this).attr('cart_id'));
+		});
+		if(cart_id.length==0){
+			return false;
+		}
+		if(confirm('确定要删除选中的商品吗？')){
+			$.ajax({
+				url : '/delcart',
+				dataType : 'json',
+				type:'post',
+				data:{cart_id:cart_id},
+				success:function(ret){
+					if(ret.code == 0){
+						location.reload();
+					}else{
+						alert(ret.msg);
+					}
+				}
+			});
+		}else{
+			return false;
+		}
+
+	});
 </script>

@@ -221,7 +221,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="javascript:void(0)" target="_blank"  class="sui-btn cat btn-danger addshopcar">加入购物车</a>
+										<button  class="sui-btn cat btn-danger addshopcar">加入购物车</button>
 									</li>
 								</ul>
 							</div>
@@ -788,7 +788,6 @@
 						alert(res.mag);
 						location.href="/login?refer="+location.href;
 					}else if(res.code==0){
-						alert('加入购物车成功');
 						location.href='/cartlist';
 					}else{
 						alert(res.mag);
