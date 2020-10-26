@@ -55,7 +55,7 @@
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+								<a class="sui-btn btn-default btn-xlarge" href="/cartlist">
 									<span>我的购物车</span>
 									<i class="shopnum">0</i>
 								</a>
@@ -81,7 +81,7 @@
 							<li class="f-item">闪购</li>
 							<li class="f-item">团购</li>
 							<li class="f-item">有趣</li>
-							<li class="f-item"><a href="seckill-index.html" target="_blank">秒杀</a></li>
+							<li class="f-item"><a href="/seckill" target="_blank">秒杀</a></li>
 						</ul>
 					</div>
 					<div class="yui3-u Right"></div>
@@ -131,7 +131,7 @@
 					  @foreach($goods as $k=>$v)
 					    <div @if($k==0) class="active item" @else class="item" @endif>
 					    <a href="/particulars/{{$v->goods_id}}">
-					    	<img src="{{env('APP_URL').$v->goods_img}}"  width="600px" />
+					    	<img src="{{env('APP_URL').$v->goods_img}}"  width="460px" />
 					      </a>
 					    </div>
 						@endforeach

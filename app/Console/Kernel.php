@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\Commands\updatehis'
+        'App\Console\Commands\updatehis',
+        'App\Console\Commands\updatetimeorder'
+
     ];
 
     /**
@@ -26,6 +28,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('updatehis')->hourly();
+        $schedule->command('updatetimeorder')->hourly();
 
     }
 

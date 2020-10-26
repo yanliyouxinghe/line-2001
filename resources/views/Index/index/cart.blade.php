@@ -13,31 +13,7 @@
 
 <body>
 	<!--head-->
-	<div class="top">
-		<div class="py-container">
-			<div class="shortcut">
-				<ul class="fl">
-					<li class="f-item">品优购欢迎您！</li>
-					<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
-				</ul>
-				<ul class="fr">
-					<li class="f-item">我的订单</li>
-					<li class="f-item space"></li>
-					<li class="f-item">我的品优购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">品优购会员</li>
-					<li class="f-item space"></li>
-					<li class="f-item">企业采购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">关注品优购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">客户服务</li>
-					<li class="f-item space"></li>
-					<li class="f-item">网站导航</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	@include('layout.top')
 	<div class="cart py-container">
 		<!--logoArea-->
 		<div class="logoArea">
@@ -53,10 +29,10 @@
 		</div>
 		<!--All goods-->
 		<div class="allgoods">
-			<h4>全部商品<span>11</span></h4>
+			<h4>全部商品<span></span></h4>
 			<div class="cart-main">
 				<div class="yui3-g cart-th">
-					<div class="yui3-u-1-4"><input type="checkbox" name="" id="check_bin" value="" /> 全部</div>
+					<div class="yui3-u-1-4"><input type="checkbox" name="" class="check_bin" value="" /> 全部</div>
 					<div class="yui3-u-1-4">商品</div>
 					<div class="yui3-u-1-8">单价（元）</div>
 					<div class="yui3-u-1-8">数量</div>
@@ -64,10 +40,6 @@
 					<div class="yui3-u-1-8">操作</div>
 				</div>
 				<div class="cart-item-list">
-					<div class="cart-shop">
-						<input type="checkbox" name="" id="" value="" />
-						<span class="shopname self">传智自营</span>
-					</div>
 					<div class="cart-body">
 
 						@foreach($cartData as $v)
@@ -93,13 +65,14 @@
 									</div>
 								</li>
 							
-								<li class="yui3-u-1-8"><span class="price">{{$v->shop_price}}</span></li>
+								<li class="yui3-u-1-8"><span class="price danjia" value="{{$v->shop_price}}">{{$v->shop_price}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="javascript:void(0)" class="increment mins">-</a>
-									<input autocomplete="off" type="text" value="{{$v->buy_number}}" minnum="1" class="itxt" />
+								
+									<a href="javascript:void(0)" class="increment mins" >-</a>
+									<input autocomplete="off" type="text" name="bun_num" value="{{$v->buy_number}}" minnum="1"  class="itxt itext" />
 									<a href="javascript:void(0)" class="increment plus">+</a>
 								</li>
-								<li class="yui3-u-1-8"><span class="sum">8848.00</span></li>
+								<li class="yui3-u-1-8"><span class="sum">{{$v->xiaoji}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="#none">删除</a><br />
 									<a href="#none">移到我的关注</a>
@@ -115,7 +88,7 @@
 			</div>
 			<div class="cart-tool">
 				<div class="select-all">
-					<input type="checkbox" name="" id="" value="" />
+					<input type="checkbox" name="" id="" value="" class="check_bin" />
 					<span>全选</span>
 				</div>
 				<div class="option">
@@ -427,13 +400,88 @@
 
 </html>
 <script type="text/javascript">
-	$('.click_bin').click(function(){
-		var cart = new Array();
-		$('.click_bin:checked').each(function(){
-			cart.push($(this).val());
+	//加号
+	$('.plus').click(function(){
+		var _this = $(this);
+		var buy_nun  = _this.prev().val();
+		var cart_id = _this.parents('ul').find('.click_bin').val();
+		var number_s = parseInt(buy_nun);
+		var number = number_s+1;
+		_this.prev().val(number);
+		getxiaoji(_this,cart_id,number);
+	});
+
+	//减号
+	$(document).on('click','.mins',function(){
+		var _this = $(this);
+		var buy_nun  = _this.next().val();
+		var cart_id = _this.parents('ul').find('.click_bin').val();
+		if(buy_nun<=1){
+			_this.next().val('1');
+			return;
+		}
+		var number = parseInt(buy_nun-1);
+		_this.next().val(number);
+		getxiaoji(_this,cart_id,number);
+	});
+		
+		//计算小计
+	 function getxiaoji(_this,cart_id,number){
+		if(!cart_id){
+			return false;
+		}
+		$.ajax({
+			url : '/getxiaoji',
+			dataType : 'json',
+			type : 'post',
+			data : {cart_id:cart_id,number,number},
+			success:function(ret){
+				if(ret.code==0){
+					var endprice = ret.data;
+					_this.parent().next().find('span').text(endprice);
+				}else if(ret.code==5555){
+					var goods_num = ret.data;
+					_this.prev().val(goods_num);
+					return;
+				}else{
+					return;
+				}
+			}
 		});
-		if(cart){
-			$.get('/getendprice',{'cart_id':cart},function(res){
+	 }
+	
+
+	//购买数量失去焦点
+	$('.itext').blur(function(){
+		var buy_nun  = $(this).val();
+		
+	});
+
+
+	//全选
+	$('.check_bin').click(function(){
+		// alert($(this).prop('checked'));
+		var _this  = $(this);
+		if(_this.prop('checked') == true){
+			$('.click_bin').prop('checked',true);
+			var cart = new Array();
+			$('.click_bin:checked').each(function(){
+				cart.push($(this).val());
+			});
+			getpricce(cart);
+		}else{
+			$('.click_bin').prop('checked',false);
+			var cart = new Array();
+			$('.click_bin:checked').each(function(){
+				cart.push($(this).val());
+			});
+			getpricce(cart);
+		}
+	});
+
+	//计算价格
+	function getpricce(cart){
+		$.get('/getendprice',{'cart_id':cart},function(res){
 				if(res.code == '0'){
  					$('.summoney').text(res.data);
 				}else{
@@ -441,7 +489,15 @@
 				}
 				//
 			},'json');
+	}
 
+	$('.click_bin').click(function(){
+		var cart = new Array();
+		$('.click_bin:checked').each(function(){
+			cart.push($(this).val());
+		});
+		if(cart){
+			getpricce(cart);
 		}else{
 			return false;
 		}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\GoodsModel;
 use App\Model\CategoryModel;
+use Illuminate\Support\Facades\Redis;
 class IndexController extends Controller
 {
         public function index(){
@@ -43,7 +44,15 @@ class IndexController extends Controller
 
        
         
-       
+       public function text(){
+        // Redis::sadd('yangfir','ysl','yyl','yxb','yxd','hzs','yxk');
+        // Redis::sadd('jaifir','xdc','zxp','yxk','lzx','hzs','zwm');
+
+        // $yangfir = Redis::smembers('yangfir');
+        // $jaifir = Redis::smembers('jaifir');
+        $gond = Redis::sinter('yangfir','jaifir');
+        dd($gond);
+       }
         
        
     

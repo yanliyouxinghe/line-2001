@@ -106,6 +106,9 @@ class CartController extends Controller
                     $cartData[$k]->goods_attr = $goods_attr?$goods_attr->toArray():[];
             }
           }
+          foreach($cartData as $k=>$v){
+            $v['xiaoji'] = $v->shop_price*$v->buy_number;
+          }
           // dd($cartData);
           return view('Index.index.cart',['cartData'=>$cartData]);
         }
@@ -128,6 +131,39 @@ class CartController extends Controller
 
          
         }
+
+        public function getxiaoji(Request $request){
+          $cart_id = $request->cart_id;
+          $number = $request->number;
+          if(!$cart_id || !$number){
+            return json_encode(['code'=>1111,'msg'=>'操作繁忙']);exit;
+          }
+          $cart =  CartModel::where('cart_id',$cart_id)->first();
+          if(!$cart){
+            return json_encode(['code'=>2222,'msg'=>'购物车中不存在此条数据']);exit;
+          }
+          $goods_num = GoodsModel::where('goods_id',$cart->goods_id)->value('goods_number');
+          if(!$goods_num){
+            return json_encode(['code'=>4444,'msg'=>'此商品不存在']);exit;
+          }
+          if($goods_num<=$number){
+            return json_encode(['code'=>5555,'msg'=>'存库不足','data'=>$goods_num]);exit;
+          } 
+          $data = [
+            'buy_number'=>$number,
+          ];
+          $CartModel = new CartModel();
+          $uodatenum =  $CartModel->where('cart_id',$cart_id)->update($data);
+          if($uodatenum){
+            $endprice = $number*$cart->shop_price;
+            return json_encode(['code'=>0,'msg'=>'修改购买数量成功','data'=>$endprice]);exit;
+          }else{
+            return json_encode(['code'=>6666,'msg'=>'修改购买数量失败']);exit;
+          }
+        
+
+        }
+      
 
         }
 

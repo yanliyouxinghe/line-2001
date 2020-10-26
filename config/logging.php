@@ -52,6 +52,11 @@ return [
             'path' => storage_path('logs/alipay.log'),
             'level' => 'debug',
         ],
+        'order' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/order.log'),
+            'level' => 'debug',
+        ],
 
         'daily' => [
             'driver' => 'daily',

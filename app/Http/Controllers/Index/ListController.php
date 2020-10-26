@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Redis;
 class ListController extends Controller
 {
     public function index($cat_id){
-        // dd($cat_id);
         //获取搜索的值
         $query = request()->all();
         $where = [];

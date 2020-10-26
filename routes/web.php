@@ -28,6 +28,8 @@ Route::get('/particulars/{id}','Index\PartController@particulars');
 Route::get('/getattrprice','Index\PartController@getattrprice');
 Route::get('/list/{id}','Index\ListController@index');
 Route::post('/cart','Index\CartController@addcart');
+Route::post('/getxiaoji','Index\CartController@getxiaoji');
+
 Route::post('/getgoodsattrnum','Index\PartController@getgoodsattrnum');
 Route::post('/getgoodsnum','Index\PartController@getgoodsnum');
 Route::post('/addcart','Index\CartController@addcart');
@@ -46,10 +48,19 @@ Route::get('/myorder','Index\HomeController@myorder');
 
 Route::post('/notify_url','Index\PayController@notify_url');
 
+Route::get('/seckill','Index\SeckillController@index');
+Route::get('/seckill_tow/{id}','Index\SeckillController@seckill_tow');
+Route::post('/seckill_order','Index\SeckillController@seckill_order');
 
 
 
 
+
+
+Route::post('/notify_url','Index\PayController@notify_url');
+
+
+Route::get('/text','Index\IndexController@text');
 
 
 
