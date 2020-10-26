@@ -248,107 +248,32 @@
 					<div class="tab-content tab-wraped">
 						<div id="index" class="tab-pane active">
 							<ul class="part-list unstyled">
-								<li>手机</li>
-								<li>手机壳</li>
-								<li>内存卡</li>
-								<li>Iphone配件</li>
-								<li>贴膜</li>
-								<li>手机耳机</li>
-								<li>移动电源</li>
-								<li>平板电脑</li>
+								@foreach( $cat_s as $v)
+								<a href="{{url('/list/'.$v['cat_id'])}}"><li>{{$v['cat_name']}}</li></a>
+								@endforeach
 							</ul>
 							<ul class="goods-list unstyled">
+								@foreach($cat_goods as $v)
 								<li>
 									<div class="list-wrap">
 										<div class="p-img">
-											<img src="/static/img/_/part01.png" />
+										<a href="/particulars/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" width="126px" height="126px"/></a>
 										</div>
 										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
+											<em>{{$v['goods_name']}}</em>
 										</div>
 										<div class="price">
 											<strong>
 											<em>¥</em>
-											<i>6088.00</i>
+											<i>{{$v['shop_price']}}</i>
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
+											<a href="/particulars/{{$v['goods_id']}}" class="sui-btn btn-bordered">加入购物车</a>
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/img/_/part02.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/img/_/part03.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/img/_/part02.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/img/_/part03.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-								</li>
+								@endforeach
 							</ul>
 						</div>
 						<div id="profile" class="tab-pane">
@@ -473,120 +398,27 @@
 				<h4 class="kt">猜你喜欢</h4>
 				<div class="like-list">
 					<ul class="yui3-g">
+						@foreach($lovegoods as $v)
 						<li class="yui3-u-1-6">
 							<div class="list-wrap">
 								<div class="p-img">
-									<img src="/static/img/_/itemlike01.png" />
+									<img src="{{$v['goods_img']}}" width="171px" height="123px"/>
 								</div>
 								<div class="attr">
-									<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
+									<em>{{$v['goods_name']}}</em>
 								</div>
 								<div class="price">
 									<strong>
 											<em>¥</em>
-											<i>3699.00</i>
+											<i>{{$v['shop_price']}}</i>
 										</strong>
 								</div>
 								<div class="commit">
-									<i class="command">已有6人评价</i>
+									<i class="command"></i>
 								</div>
 							</div>
 						</li>
-						<li class="yui3-u-1-6">
-							<div class="list-wrap">
-								<div class="p-img">
-									<img src="/static/img/_/itemlike02.png" />
-								</div>
-								<div class="attr">
-									<em>Apple苹果iPhone 6s/6s Plus 16G 64G 128G</em>
-								</div>
-								<div class="price">
-									<strong>
-											<em>¥</em>
-											<i>4388.00</i>
-										</strong>
-								</div>
-								<div class="commit">
-									<i class="command">已有700人评价</i>
-								</div>
-							</div>
-						</li>
-						<li class="yui3-u-1-6">
-							<div class="list-wrap">
-								<div class="p-img">
-									<img src="/static/img/_/itemlike03.png" />
-								</div>
-								<div class="attr">
-									<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-								</div>
-								<div class="price">
-									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-								</div>
-								<div class="commit">
-									<i class="command">已有700人评价</i>
-								</div>
-							</div>
-						</li>
-						<li class="yui3-u-1-6">
-							<div class="list-wrap">
-								<div class="p-img">
-									<img src="/static/img/_/itemlike04.png" />
-								</div>
-								<div class="attr">
-									<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-								</div>
-								<div class="price">
-									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-								</div>
-								<div class="commit">
-									<i class="command">已有700人评价</i>
-								</div>
-							</div>
-						</li>
-						<li class="yui3-u-1-6">
-							<div class="list-wrap">
-								<div class="p-img">
-									<img src="/static/img/_/itemlike05.png" />
-								</div>
-								<div class="attr">
-									<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-								</div>
-								<div class="price">
-									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-								</div>
-								<div class="commit">
-									<i class="command">已有700人评价</i>
-								</div>
-							</div>
-						</li>
-						<li class="yui3-u-1-6">
-							<div class="list-wrap">
-								<div class="p-img">
-									<img src="/static/img/_/itemlike06.png" />
-								</div>
-								<div class="attr">
-									<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-								</div>
-								<div class="price">
-									<strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-								</div>
-								<div class="commit">
-									<i class="command">已有700人评价</i>
-								</div>
-							</div>
-						</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>

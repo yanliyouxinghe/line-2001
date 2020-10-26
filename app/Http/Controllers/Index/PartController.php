@@ -9,6 +9,7 @@ use App\Model\GalleryModel;
 use App\Model\GoodsAttr;
 use App\Model\Attribute;
 use App\Model\ProductModel;
+use App\Model\CategoryModel;
 use Illuminate\Support\Facades\Redis;
 class PartController extends Controller
 {
@@ -26,9 +27,14 @@ class PartController extends Controller
         $jianjie = $this->jianjie($id);
         //规格
         $guige = $this->guige($id);
-        
-        // dd($guige);
-        return view('Index.index.part',['goods'=>$goods,'gallery'=>$gallery,'attr'=>$attr,'jianjie'=>$jianjie,'guige'=>$guige,'click_num'=>$click_num]);
+        //猜你喜欢
+        $lovegoods = $this->love($id);
+        //相关分类
+        $cat_s = $this->cat_s($id);
+       
+        //相关分类下的商品
+        $cat_goods = $this->cat_goods($id);
+        return view('Index.index.part',['goods'=>$goods,'gallery'=>$gallery,'attr'=>$attr,'jianjie'=>$jianjie,'guige'=>$guige,'click_num'=>$click_num,'lovegoods'=>$lovegoods,'cat_s'=> $cat_s,'cat_goods'=>$cat_goods]);
     }      
 
     //图片
@@ -121,6 +127,31 @@ class PartController extends Controller
 
              }
          }
+         //猜你喜欢
+         public function love($goods_id){
+            $cat_id = GoodsModel::where('goods_id',$goods_id)->select('cat_id')->get();
+            $lovegoods = GoodsModel::whereIn('cat_id',$cat_id)->get()->toArray();
+            return $lovegoods;
+          }
+          //相关分类
+          public function cat_s($id){
+            $cat_id = GoodsModel::where('goods_id',$id)->select('cat_id')->get();
+            $cat_s_id = CategoryModel::select('cat_name','cat_id')->whereIn('parent_id',$cat_id)->get();
+            $cat_s_id = $cat_s_id?$cat_s_id->toArray():[];
+            return $cat_s_id;
+          }
+          //相关分类下的 商品
+          public function cat_goods($goods_id){
+            $cat_id = GoodsModel::where('goods_id',$goods_id)->select('cat_id')->get();
+            $goods = GoodsModel::whereIn('cat_id',$cat_id)->get();
+            $goods = $goods?$goods->toArray():[];
+            return $goods;
+          }
+
+
+}
+$goods;
+          }
 
 
 }

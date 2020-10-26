@@ -109,7 +109,10 @@ class CartController extends Controller
             $v['xiaoji'] = $v->shop_price*$v->buy_number;
           }
           // dd($cartData);
-          return view('Index.index.cart',['cartData'=>$cartData]);
+
+          //调用猜你喜欢
+          $love = $this->love($user_id);
+          return view('Index.index.cart',['cartData'=>$cartData,'love'=>$love]);
         }
 
         public function getendprice(){
@@ -180,5 +183,15 @@ class CartController extends Controller
             }
           }
 
-        }
+
+          //猜你喜欢
+          public function love($user_id){
+            $goods_id = CartModel::where('user_id',$user_id)->select('goods_id')->get();
+            $cat_id = GoodsModel::whereIn('goods_id',$goods_id)->select('cat_id')->get();
+            $lovegoods = GoodsModel::whereIn('cat_id',$cat_id)->get()->toArray();
+            return $lovegoods;
+          }
+
+
+        } 
 

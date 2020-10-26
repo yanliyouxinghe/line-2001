@@ -144,54 +144,20 @@
 							<div class="carousel-inner">
 								<div class="active item">
 									<ul>
+										@foreach($love as $v)
 										<li>
-											<img src="/static/img/like1.png" />
+										<a href="/particulars/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" width="174px" height="200px"/></a>
 											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
+												<i>{{$v['goods_name']}}</i>
 											</div>
 											<div class="money">
-												<span>$29.00</span>
+												<span>￥{{$v['shop_price']}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+												<a href="/particulars/{{$v['goods_id']}}" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
 											</div>
 										</li>
-										<li>
-											<img src="/static/img/like2.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/img/like3.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/img/like4.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
+										@endforeach
 									</ul>
 								</div>
 								<div class="item">
