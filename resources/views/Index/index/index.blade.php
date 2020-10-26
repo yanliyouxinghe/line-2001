@@ -249,7 +249,7 @@
 				@foreach($is_new as $v)
 				<li class="yui3-u-5-24">
 					<a href="/particulars/{{$v->goods_id}}" target="_blank">
-						<img src="{{env('APP_URL').$v->goods_img}}" width="220px"/>
+						<img src="{{env('APP_URL').$v->goods_img}}" width="170px"/>
 					</a>
 				</li>
 				@endforeach
