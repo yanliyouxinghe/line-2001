@@ -42,19 +42,20 @@ class updatetimeorder extends Command
      */
     public function handle()
     {
-      $order =  \DB::select('select order_id from order_info where is_paid=0 and unix_timestamp(now())-addtime>=10');
+      $order =  DB::select('select order_id from order_info where is_paid=0 and unix_timestamp(now())-addtime>=1800');
       if($order){
             foreach($order as $v){
                 $goods = Ordergoods::where('order_id',$v->order_id)->get();
                 if(!$goods) continue;
                 foreach($goods as $vv){
                     if($vv->goods_attr_id){
-                        ProductModel::where('product_id',$vv->product_id)->increment('product_id',$vv->buy_number);
+                        // dd($vv);
+                      ProductModel::where('product_id',$vv->product_id)->increment('product_number',$vv->buy_number);
                     }
                     GoodsModel::where('goods_id',$vv->goods_id)->increment('goods_number',$vv->buy_number);
                 }
                 Order::where('order_id',$v->order_id)->update(['is_paid'=>2]);
-                Log::channel('order')->info($v->order_id."此订单支付超时");
+                Log::channel('order')->info($v->order_id."此订单支付超时");         
             }
       }
     }

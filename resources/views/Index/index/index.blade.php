@@ -22,76 +22,10 @@
 	<!-- 头部 -->
 	@include('layout.top')
 	<!--头部-->
-		<div class="header">
-			<div class="py-container">
-				<div class="yui3-g Logo">
-					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
-					</div>
-					<div class="yui3-u Center searchArea">
-						<div class="search">
-							<form action="" class="sui-form form-inline">
-								<!--searchAutoComplete-->
-								<div class="input-append">
-									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge" />
-									<button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
-								</div>
-							</form>
-						</div>
-						<div class="hotwords">
-							<ul>
-								<li class="f-item">品优购首发</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">每满99减30</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">办公用品</li>
-
-							</ul>
-						</div>
-					</div>
-					<div class="yui3-u Right shopArea">
-						<div class="fr shopcar">
-							<div class="show-shopcar" id="shopcar">
-								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="/cartlist">
-									<span>我的购物车</span>
-									<i class="shopnum">0</i>
-								</a>
-								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="yui3-g NavList">
-					<div class="yui3-u Left all-sort">
-						<h4>全部商品分类</h4>
-					</div>
-					<div class="yui3-u Center navArea">
-						<ul class="nav">
-							<li class="f-item">服装城</li>
-							<li class="f-item">美妆馆</li>
-							<li class="f-item">品优超市</li>
-							<li class="f-item">全球购</li>
-							<li class="f-item">闪购</li>
-							<li class="f-item">团购</li>
-							<li class="f-item">有趣</li>
-							<li class="f-item"><a href="/seckill" target="_blank">秒杀</a></li>
-						</ul>
-					</div>
-					<div class="yui3-u Right"></div>
-				</div>
-			</div>
-		</div>
+	@include('layout.head')
+		
 	</div>
 </div>
-
-
 	<!--列表-->
 	<div class="sort">
 		<div class="py-container">
@@ -297,19 +231,23 @@
 				</div>
 				<div class="yui3-u row-225 Interest-conver-split">
 					<h5>好东西</h5>
-					<img src="/static/img/interest02.png" />
-					<img src="/static/img/interest03.png" />
+					@include('Index.index.ads.2');
+					
+					@include('Index.index.ads.3');
+
 				</div>
 				<div class="yui3-u row-405 Interest-conver-split blockgary">
 					<h5>品牌街</h5>
 					<div class="split-bt">
-						<img src="/static/img/interest04.png" />
+					@include('Index.index.ads.4');
 					</div>
 					<div class="x-img fl">
-						<img src="/static/img/interest05.png" />
+					@include('Index.index.ads.5');
+
 					</div>
 					<div class="x-img fr">
-						<img src="/static/img/interest06.png" />
+					@include('Index.index.ads.6');
+
 					</div>
 				</div>
 				<div class="yui3-u row-165 brandArea">

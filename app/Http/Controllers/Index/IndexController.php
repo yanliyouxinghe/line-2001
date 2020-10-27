@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\GoodsModel;
 use App\Model\CategoryModel;
+use App\Model\CartModel;
+
 use Illuminate\Support\Facades\Redis;
 class IndexController extends Controller
 {
@@ -23,8 +25,6 @@ class IndexController extends Controller
             $is_new = $goodsModel->Isnew();
             //猜你喜欢
             $islove = $goodsModel->Islove();
-            // dd($islove);
-            // dump($tree);die;
             return view('Index.index.index',['goods'=>$goods,'tree'=>$tree,'is_new'=>$is_new,'islove'=>$islove]);
         }
 
@@ -44,14 +44,16 @@ class IndexController extends Controller
 
        
         
-       public function text(){
-        // Redis::sadd('yangfir','ysl','yyl','yxb','yxd','hzs','yxk');
-        // Redis::sadd('jaifir','xdc','zxp','yxk','lzx','hzs','zwm');
+       public function cart_goods(){
+        $user_id = session()->get('user_id');
+        if(!$user_id){
 
-        // $yangfir = Redis::smembers('yangfir');
-        // $jaifir = Redis::smembers('jaifir');
-        $gond = Redis::sinter('yangfir','jaifir');
-        dd($gond);
+        }
+        $cart =  CartModel::where('user_id',$user_id)->get();
+        $count = CartModel::where('user_id',$user_id)->count();
+        
+
+        return view('layout.head',['cart'=>$cart,'count'=>$count]);
        }
         
        

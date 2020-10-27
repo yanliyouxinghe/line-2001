@@ -2423,3 +2423,61 @@
   'sign_type' => 'RSA2',
   'seller_id' => '2088102180286703',
 )
+2020-10-27 15:07:34  {"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_84169","total_amount":"6005.00","out_trade_no":"1603782453461423"}
+2020-10-27 15:07:34  response: '<form id=\'alipaysubmit\' name=\'alipaysubmit\' action=\'https://openapi.alipaydev.com/gateway.do?charset=UTF-8\' method=\'POST\'><input type=\'hidden\' name=\'biz_content\' value=\'{"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_84169","total_amount":"6005.00","out_trade_no":"1603782453461423"}\'/><input type=\'hidden\' name=\'app_id\' value=\'2016101900723516\'/><input type=\'hidden\' name=\'version\' value=\'1.0\'/><input type=\'hidden\' name=\'format\' value=\'json\'/><input type=\'hidden\' name=\'sign_type\' value=\'RSA2\'/><input type=\'hidden\' name=\'method\' value=\'alipay.trade.page.pay\'/><input type=\'hidden\' name=\'timestamp\' value=\'2020-10-27 15:07:34\'/><input type=\'hidden\' name=\'alipay_sdk\' value=\'alipay-sdk-php-20161101\'/><input type=\'hidden\' name=\'notify_url\' value=\'http://kai.lvluo.site/notify_url\'/><input type=\'hidden\' name=\'return_url\' value=\'http://kai.lvluo.site/return_url\'/><input type=\'hidden\' name=\'charset\' value=\'UTF-8\'/><input type=\'hidden\' name=\'sign\' value=\'a80qnz9BEP8bx1sXb5SSCMuyy3fDkSzziA6SG+1shf6PVqpFmLR+i5Cn+zaLxAeRYmOXHwQ1QdpN4CV83BDxdetsYFieKeoA34pqpTFB5crrouUK9fGqDfMBvQCciE/tPpFgFOhMT94y2wh2WnUtoTvR3BSwQBdj9hvY6QNCEnicCKoptxe9mjRowpxnamOsO4Jx9Ljoy8zuTdPKtCpB8zOvtXfLxLalihLKg2eHw8Q7pxHHL1NuZBfd4RDpb4OmZM0P6AjQwYcOxTPzznMQ1gutOeyd4feaJYemZ55rBbz3Y8YKTPj8SZ/wg3z8mhGdkqkUmW2aJNE8v1fvRVdGAA==\'/><input type=\'submit\' value=\'ok\' style=\'display:none;\'\'></form><script>document.forms[\'alipaysubmit\'].submit();</script>'
+2020-10-27 15:08:14  array (
+  'gmt_create' => '2020-10-27 15:07:58',
+  'charset' => 'UTF-8',
+  'gmt_payment' => '2020-10-27 15:08:11',
+  'notify_time' => '2020-10-27 15:08:13',
+  'subject' => 'ECS_84169',
+  'sign' => 'OYEPvuMWzM08c5aQtAa7IpPgA0K3lNdbFL7alF28gFQm8L0bmfIstU4b9EYdX+vFwMDBYP8YUzcv2uXY5t1Huz4ZatD795KvtW4Cy4YKoP7Ry5lyL6tc1/MhsNCzctOv1avfOo4pMvPQVF2184uV0kdlxcMDZiXRdDYJKET6bN2DqdDNnQQ/6STgQq7xkdKtNm+GBq/p8n6A6qdtUmtIbonUtXugEZlCiPE32j5hDW9OHeq4UyiFvhU0XqCnhyg2y0SY208ZR1bJKWl+BjT1n9/E5I2Rjs9GNhEJPQge7fTAxVwg0YNpces/c8kT29HMUYvrU6twDbKKkvWuTiWSEQ==',
+  'buyer_id' => '2088102180498663',
+  'invoice_amount' => '6005.00',
+  'version' => '1.0',
+  'notify_id' => '2020102700222150812098660542355405',
+  'fund_bill_list' => '[{"amount":"6005.00","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'out_trade_no' => '1603782453461423',
+  'total_amount' => '6005.00',
+  'trade_status' => 'TRADE_SUCCESS',
+  'trade_no' => '2020102722001498660512318646',
+  'auth_app_id' => '2016101900723516',
+  'receipt_amount' => '6005.00',
+  'point_amount' => '0.00',
+  'app_id' => '2016101900723516',
+  'buyer_pay_amount' => '6005.00',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088102180286703',
+)
+2020-10-27 16:53:30  {"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_38315","total_amount":"44850.00","out_trade_no":"1603788809317913"}
+2020-10-27 16:53:30  response: '<form id=\'alipaysubmit\' name=\'alipaysubmit\' action=\'https://openapi.alipaydev.com/gateway.do?charset=UTF-8\' method=\'POST\'><input type=\'hidden\' name=\'biz_content\' value=\'{"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_38315","total_amount":"44850.00","out_trade_no":"1603788809317913"}\'/><input type=\'hidden\' name=\'app_id\' value=\'2016101900723516\'/><input type=\'hidden\' name=\'version\' value=\'1.0\'/><input type=\'hidden\' name=\'format\' value=\'json\'/><input type=\'hidden\' name=\'sign_type\' value=\'RSA2\'/><input type=\'hidden\' name=\'method\' value=\'alipay.trade.page.pay\'/><input type=\'hidden\' name=\'timestamp\' value=\'2020-10-27 16:53:30\'/><input type=\'hidden\' name=\'alipay_sdk\' value=\'alipay-sdk-php-20161101\'/><input type=\'hidden\' name=\'notify_url\' value=\'http://kai.lvluo.site/notify_url\'/><input type=\'hidden\' name=\'return_url\' value=\'http://kai.lvluo.site/return_url\'/><input type=\'hidden\' name=\'charset\' value=\'UTF-8\'/><input type=\'hidden\' name=\'sign\' value=\'FU39ts/3zzSriyoTqEmflBgrjRhNCtBFJKOJYG05IfnpRJQtow4lJBacQYLsuIbgxA9SyqDJoCpaL36gq2aSKJSZ3smxGbpumQIF1sAjX/FW02GArn1OvlAGMWwPOLg+hCtkQBA9rzJjBuNTQ5qUrGc0LYUUxOS4H1AweJmfSnBczjSxivofR5y3YKvn+wCAlX0cEG4DfHo6xl8WqDd7t25kjDP+1Y7e+yFieEc7VXfDrvbC3I6GtYQH2DrWq9OvsglZjzzU6CVvayqLR2FPYXWylhrV/ctOIiBjdGukXi2yzNg+dDWr1xLOCgdEZzKqH3PM6QJxlGLr5M+xNhcMyw==\'/><input type=\'submit\' value=\'ok\' style=\'display:none;\'\'></form><script>document.forms[\'alipaysubmit\'].submit();</script>'
+2020-10-27 16:54:20  {"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_90283","total_amount":"44850.00","out_trade_no":"1603788859274313"}
+2020-10-27 16:54:20  response: '<form id=\'alipaysubmit\' name=\'alipaysubmit\' action=\'https://openapi.alipaydev.com/gateway.do?charset=UTF-8\' method=\'POST\'><input type=\'hidden\' name=\'biz_content\' value=\'{"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_90283","total_amount":"44850.00","out_trade_no":"1603788859274313"}\'/><input type=\'hidden\' name=\'app_id\' value=\'2016101900723516\'/><input type=\'hidden\' name=\'version\' value=\'1.0\'/><input type=\'hidden\' name=\'format\' value=\'json\'/><input type=\'hidden\' name=\'sign_type\' value=\'RSA2\'/><input type=\'hidden\' name=\'method\' value=\'alipay.trade.page.pay\'/><input type=\'hidden\' name=\'timestamp\' value=\'2020-10-27 16:54:20\'/><input type=\'hidden\' name=\'alipay_sdk\' value=\'alipay-sdk-php-20161101\'/><input type=\'hidden\' name=\'notify_url\' value=\'http://kai.lvluo.site/notify_url\'/><input type=\'hidden\' name=\'return_url\' value=\'http://kai.lvluo.site/return_url\'/><input type=\'hidden\' name=\'charset\' value=\'UTF-8\'/><input type=\'hidden\' name=\'sign\' value=\'P/9EaZN/ysGGnoLIo+bnPOCvlgP1hz4yOL4wn3SkqkEe4I+XhubviZLTbrkp/9j69CI5nJE1iNsTUZfW3+idzCn5drD+Gar8V1jH5abJfq6h7BNBokZ/lX7i16S8kR+oRqLRflLkqPGsBlBGUW1mPlpdglwrpuM6DEFntTqYOttJA8a2c96nbD1kBxjzRaqM3ohLZpA3q8L/PPWwsVgL+aTpftCpltYJXYDctEXoK054z8HmmT5mJxv6qenVFXEZ4SLLFDzlzMy5PI4OsDuZicrdG0Xa6EwZC55sVNRSMmaKOb7tzDdcX8kiiqlUKcYBq9RFpfUb9BdqKJAFoY1wgQ==\'/><input type=\'submit\' value=\'ok\' style=\'display:none;\'\'></form><script>document.forms[\'alipaysubmit\'].submit();</script>'
+2020-10-27 16:56:43  {"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_99137","total_amount":"44850.00","out_trade_no":"1603789003789253"}
+2020-10-27 16:56:43  response: '<form id=\'alipaysubmit\' name=\'alipaysubmit\' action=\'https://openapi.alipaydev.com/gateway.do?charset=UTF-8\' method=\'POST\'><input type=\'hidden\' name=\'biz_content\' value=\'{"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_99137","total_amount":"44850.00","out_trade_no":"1603789003789253"}\'/><input type=\'hidden\' name=\'app_id\' value=\'2016101900723516\'/><input type=\'hidden\' name=\'version\' value=\'1.0\'/><input type=\'hidden\' name=\'format\' value=\'json\'/><input type=\'hidden\' name=\'sign_type\' value=\'RSA2\'/><input type=\'hidden\' name=\'method\' value=\'alipay.trade.page.pay\'/><input type=\'hidden\' name=\'timestamp\' value=\'2020-10-27 16:56:43\'/><input type=\'hidden\' name=\'alipay_sdk\' value=\'alipay-sdk-php-20161101\'/><input type=\'hidden\' name=\'notify_url\' value=\'http://kai.lvluo.site/notify_url\'/><input type=\'hidden\' name=\'return_url\' value=\'http://kai.lvluo.site/return_url\'/><input type=\'hidden\' name=\'charset\' value=\'UTF-8\'/><input type=\'hidden\' name=\'sign\' value=\'HRDfQeQyzpGzLy6RBTgVRkwVsf65PWmttGCvfRSFeznpVGhvYIDYGIZag6tJOiiRmKglF80gI3/fxLYBMCNTEvw/kmXkcCGLg8gAoUcPTblq71Plx8jWWbg2D+9IqRkqB0123C3LeToO+UYxgcoZkOgrLDt61TdjN3i2Yj3NtmxcIgLdE0ubTCcq8RhJ3E5G1xg3u0PnegSUBaHTESLKoZAiiyPFwkt0Jlpcpvmu2OjJJHMlHt+YFylDGceGJo76AMUbDD5U7nsXFEzSQmYNhMYed0fqs+l1JTJVrjAVqE7mMkuI2ovYSVbUAJXvMlC8R1e/qYG2Z79C6F815wENYA==\'/><input type=\'submit\' value=\'ok\' style=\'display:none;\'\'></form><script>document.forms[\'alipaysubmit\'].submit();</script>'
+2020-10-27 16:57:25  array (
+  'gmt_create' => '2020-10-27 16:57:08',
+  'charset' => 'UTF-8',
+  'gmt_payment' => '2020-10-27 16:57:23',
+  'notify_time' => '2020-10-27 16:57:24',
+  'subject' => 'ECS_99137',
+  'sign' => 'LJE8JlmlnQjuHVaQ6at/TIkQfZ8jWeAPEKT9FSfRbkbKRYHIekzNXOo2O0Zv2647yNbz+TgkBKFBfFHxnOMouVgJ/tVlIDtSVOSrV/98pzIrAS1bDMoxuDORIPT8OhRm3EH4qzHMoK52wD7wBCoVxXBLuiWjtozx2aMOMiSG3QIYels/6cPQbGizthrmjjsCa/dO/PSDxX8xxtyhuwPMmpPTY1gjArtK9q3sm4QpdsgQy9nN25O6bDJTTgd/Z5bWdI7CWD8VpDbID/9N5zmQ2rtWM+Vrn3FBqouOJ70mFW5MslLaO8aDvkxyAAODkX8mt3yK94QHcekG3vX5hsVuEg==',
+  'buyer_id' => '2088102180498663',
+  'invoice_amount' => '44850.00',
+  'version' => '1.0',
+  'notify_id' => '2020102700222165723098660542353960',
+  'fund_bill_list' => '[{"amount":"44850.00","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'out_trade_no' => '1603789003789253',
+  'total_amount' => '44850.00',
+  'trade_status' => 'TRADE_SUCCESS',
+  'trade_no' => '2020102722001498660512318764',
+  'auth_app_id' => '2016101900723516',
+  'receipt_amount' => '44850.00',
+  'point_amount' => '0.00',
+  'app_id' => '2016101900723516',
+  'buyer_pay_amount' => '44850.00',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088102180286703',
+)
