@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>我的订单</title>
-     <link rel="icon" href="assets//static/img/favicon.ico">
+     <link rel="icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/static/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/pages-seckillOrder.css" />
@@ -18,107 +18,12 @@
 <div id="nav-bottom">
 	<!--顶部-->
 	<div class="nav-top">
-		<div class="top">
-			<div class="py-container">
-				<div class="shortcut">
-					<ul class="fl">
-						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
-					</ul>
-					<ul class="fr">
-						<li class="f-item">我的订单</li>
-						<li class="f-item space"></li>
-						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
-						<li class="f-item space"></li>
-						<li class="f-item">品优购会员</li>
-						<li class="f-item space"></li>
-						<li class="f-item">企业采购</li>
-						<li class="f-item space"></li>
-						<li class="f-item">关注品优购</li>
-						<li class="f-item space"></li>
-						<li class="f-item" id="service">
-							<span>客户服务</span>
-							<ul class="service">
-								<li><a href="cooperation.html" target="_blank">合作招商</a></li>
-								<li><a href="shoplogin.html" target="_blank">商家后台</a></li>
-								<li><a href="cooperation.html" target="_blank">合作招商</a></li>
-								<li><a href="#">商家后台</a></li>
-							</ul>
-						</li>
-						<li class="f-item space"></li>
-						<li class="f-item">网站导航</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	@include('layout.top')
+	
 
 		<!--头部-->
-		<div class="header">
-			<div class="py-container">
-				<div class="yui3-g Logo">
-					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
-					</div>
-					<div class="yui3-u Center searchArea">
-						<div class="search">
-							<form action="" class="sui-form form-inline">
-								<!--searchAutoComplete-->
-								<div class="input-append">
-									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge" />
-									<button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
-								</div>
-							</form>
-						</div>
-						<div class="hotwords">
-							<ul>
-								<li class="f-item">品优购首发</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">每满99减30</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">办公用品</li>
-
-							</ul>
-						</div>
-					</div>
-					<div class="yui3-u Right shopArea">
-						<div class="fr shopcar">
-							<div class="show-shopcar" id="shopcar">
-								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
-									<span>我的购物车</span>
-									<i class="shopnum">0</i>
-								</a>
-								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="yui3-g NavList">
-					<div class="yui3-u Left all-sort">
-						<h4>全部商品分类</h4>
-					</div>
-					<div class="yui3-u Center navArea">
-						<ul class="nav">
-							<li class="f-item">服装城</li>
-							<li class="f-item">美妆馆</li>
-							<li class="f-item">品优超市</li>
-							<li class="f-item">全球购</li>
-							<li class="f-item">闪购</li>
-							<li class="f-item">团购</li>
-							<li class="f-item">有趣</li>
-							<li class="f-item"><a href="seckill-index.html" target="_blank">秒杀</a></li>
-						</ul>
-					</div>
-					<div class="yui3-u Right"></div>
-				</div>
-			</div>
-		</div>
+		@include('layout.head')
+	
 	</div>
 </div>
 
@@ -153,7 +58,7 @@ $(function(){
                     <div class="person-info">
                         <div class="person-photo"><img src="/static/img/_/photo.png" alt=""></div>
                         <div class="person-account">
-                            <span class="name">Michelle</span>
+                            <span class="name">{{$user_name}}</span>
                             <span class="safe">账户安全</span>
                         </div>
                         <div class="clearfix"></div>
@@ -203,7 +108,7 @@ $(function(){
                         </div>
                         <div class="order-detail">
                             <div class="orders">
-                                <div class="choose-order">
+                                <!-- <div class="choose-order">
                                     <div class="sui-pagination pagination-large top-pages">
                                         <ul>
                                             <li class="prev disabled"><a href="#">上一页</a></li>
@@ -211,74 +116,82 @@ $(function(){
                                             <li class="next"><a href="#">下一页</a></li>
                                         </ul>
                                     </div>
-                                </div>
-                                @foreach($order as $k=>$v)
+                                </div> -->
+
 								<!--order1-->
+                               
+                                
+								<!--order2-->
+								@foreach($order_goods as $v)
                                 <div class="choose-title">
                                     <label data-toggle="checkbox" class="checkbox-pretty ">
-                                           <input type="checkbox" checked="checked"><span>{{date('Y-m-d h:i:s',$v['addtime'])}}　订单编号：{{$v['order_sn']}}  </span>
-                                           <!-- 店铺：哇哈哈 <a>和我联系</a> -->
+                                           <input type="checkbox" checked="checked"><span>{{date('Y-m-d H:i:s',$v['addtime'])}}　订单编号：{{$v['order_sn']}}  店铺：哇哈哈 <a>和我联系</a></span>
                                      </label>
 									  <a class="sui-btn btn-info share-btn">分享</a>
                                 </div>
                                 <table class="sui-table table-bordered order-datatable">
                                     <tbody>
+										@foreach($v['goods'] as $kk=>$vv)
                                         <tr>
                                             <td width="35%">
-                                                <div class="typographic"><img src="{{env('APP_URL').$v['goods_thumb']}}" width="82px" height="82px" />
-                                                    <a href="#" class="block-text">{{$v['goods_name']}}</a>
+                                                <div class="typographic"><img src="{{$vv['goods_thumb']}}" width="82px" height="82px"/>
+                                                    <a href="#" class="block-text">{{$vv['goods_name']}}</a>
                                                     <span class="guige">规格：温泉喷雾150ml</span>
                                                 </div>
                                             </td>
                                             <td width="5%" class="center">
                                                 <ul class="unstyled">
-                                                    <li class="o-price">¥2000.00</li>
-                                                    <li>¥{{$v['deal_price']}}</li>
+                                                    <li class="o-price"></li>
+                                                    <li>¥{{$vv['shop_price']}}</li>
                                                 </ul>
                                             </td>
-                                            <td width="5%" class="center">1</td>
+											<td width="5%" class="center">{{$vv['buy_number']}}</td>
                                             <td width="8%" class="center">
-                                               
-                                            </td>
-                                            <td width="10%" class="center" >
+                                                <ul class="unstyled">
+													@if($vv['is_devl']==1)
+                                                    <li>已发货</li>
+													<li><a>退货/退款</a></li>
+													@elseif($vv['is_devl']==0)
+													<li>待发货</li>
+													<li><a>退货/退款</a></li>
+													@endif
+                                                </ul>
+											</td>
+											@if($kk==0)
+                                            <td width="10%" class="center" rowspan="{{count($vv)}}">
                                                 <ul class="unstyled">
                                                     <li>¥{{$v['deal_price']}}</li>
                                                     <li>（含运费：￥0.00）</li>
                                                 </ul>
                                             </td>
-                                            @if($v['is_paid']=='0')
-                                            <td width="10%" class="center">
+                                            <td width="10%" class="center" rowspan="{{count($vv)}}">
+												
                                                 <ul class="unstyled">
-                                                    <li>等待卖家付款</li>
+													@if(count($vv)==strlen($vv['is_devl']==1))
+                                                    <li>已全部发货</li>
                                                     <li><a href="orderDetail.html" class="btn">订单详情 </a></li>
-                                                </ul>
-                                            </td>
-                                            <td width="10%" class="center">
-                                                <ul class="unstyled">
-													<li><a href="#" class="sui-btn btn-info">立即付款</a></li>
-                                                    <li>取消订单</li>
-                                                    
-                                                </ul>
-                                            </td>
-                                            @elseif($v['is_paid']=='1')
-                                          <td width="10%" class="center">
-                                                <ul class="unstyled">
-                                                    <li>买家已付款</li>
+													@elseif(count($vv)!=strlen($vv['is_devl']==1))
+													<li>部分发货</li>
                                                     <li><a href="orderDetail.html" class="btn">订单详情 </a></li>
-                                                </ul>
+													@endif
+												</ul>
                                             </td>
-                                            <td width="10%" class="center">
+                                            <td width="10%" class="center" rowspan="{{count($vv)}}">
                                                 <ul class="unstyled">
-                                                    <li><a href="#" class="sui-btn btn-info">提醒发货</a></li>
+                                                    <li>还剩4天23时</li>
+                                                    <li><a href="#" class="sui-btn btn-info">确认收货</a></li>
                                                 </ul>
-                                            </td>
-                                            @endif
+											</td>
+											@endif
                                         </tr>
-                                        
+                                       @endforeach
 
                                     </tbody>
                                 </table>
-                               @endforeach
+								@endforeach
+                                <!--order3-->
+                               
+                               
                             </div>
                             <div class="choose-order">
                                 <div class="sui-pagination pagination-large top-pages">

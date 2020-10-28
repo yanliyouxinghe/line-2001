@@ -42,7 +42,7 @@ class CartController extends Controller
         if($goods->goods_number<$buy_number ){
                 return json_encode(['code'=>5,'mag'=>'存库不足']);die;
             }
-       }
+       };
 
        $cart = CartModel::where(['user_id'=>$user_id,'goods_id'=>$goods_id,'goods_attr_id'=>$goods_attr_id])->first();
        // dd($cart);

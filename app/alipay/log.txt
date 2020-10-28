@@ -2481,3 +2481,30 @@
   'sign_type' => 'RSA2',
   'seller_id' => '2088102180286703',
 )
+2020-10-28 10:01:15  {"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_79305","total_amount":"24145.00","out_trade_no":"1603850474549433"}
+2020-10-28 10:01:15  response: '<form id=\'alipaysubmit\' name=\'alipaysubmit\' action=\'https://openapi.alipaydev.com/gateway.do?charset=UTF-8\' method=\'POST\'><input type=\'hidden\' name=\'biz_content\' value=\'{"product_code":"FAST_INSTANT_TRADE_PAY","body":"","subject":"ECS_79305","total_amount":"24145.00","out_trade_no":"1603850474549433"}\'/><input type=\'hidden\' name=\'app_id\' value=\'2016101900723516\'/><input type=\'hidden\' name=\'version\' value=\'1.0\'/><input type=\'hidden\' name=\'format\' value=\'json\'/><input type=\'hidden\' name=\'sign_type\' value=\'RSA2\'/><input type=\'hidden\' name=\'method\' value=\'alipay.trade.page.pay\'/><input type=\'hidden\' name=\'timestamp\' value=\'2020-10-28 10:01:15\'/><input type=\'hidden\' name=\'alipay_sdk\' value=\'alipay-sdk-php-20161101\'/><input type=\'hidden\' name=\'notify_url\' value=\'http://kai.lvluo.site/notify_url\'/><input type=\'hidden\' name=\'return_url\' value=\'http://kai.lvluo.site/return_url\'/><input type=\'hidden\' name=\'charset\' value=\'UTF-8\'/><input type=\'hidden\' name=\'sign\' value=\'fLCRsD5cjTKa2Q12MQs1zh4WbMVhLmneI0mY7ozx5st23xrijSB5oHJSg+XJ78YBADWVnPHz65PjVHzyf1Wjwazo4Gs9NllULZtZsO+X+Jv084LkvKbMOaz+HvdHHiPEQY6GIgziUPA21ShLVebjpEjEto5QIJ5LpPCmVCi0TdACm1XA/IZAS7X7hdykYbOFvFHUTlI8bxNFrr5muXw4XTDoGEwAHA/PF2tzzZtcwaP2W+K7Z/zi9NrjhEJ2ybn145M7CGrTzGqQ7hlNCw++K931/u7er+11wpl7LG+xEDx2ZuGl1kH31A9dLNZLFfDod8cdKyYNYuyhbL8AAMWZKw==\'/><input type=\'submit\' value=\'ok\' style=\'display:none;\'\'></form><script>document.forms[\'alipaysubmit\'].submit();</script>'
+2020-10-28 10:01:40  array (
+  'gmt_create' => '2020-10-28 10:01:29',
+  'charset' => 'UTF-8',
+  'gmt_payment' => '2020-10-28 10:01:38',
+  'notify_time' => '2020-10-28 10:01:39',
+  'subject' => 'ECS_79305',
+  'sign' => 'M9t/OU1vif0/R/Jn+KYjlvUdmiF/0h2Atfzz30jUNj2us2KvcZJIbStZiE1etcHQolp0UeFmSFjPgBypUL9K+iRGx0H2IK76B4EjefrDBKJztjmgHDC3GLQD0OAhZUJYwfVvFHd+Xf0njbWszi/z9pHSuDWhlZlGBCMnR7wWAPAPs3m9IYJCGO/3K3LxXj563xZeUPNL/edqx3+jI1U9G1TwQNjtN6kPEHTivfugz0Lp0qZ2jdC3eB2WS5BYmVLQvs+X5H9N5spLHll5HOrdgUiL0rX/9mDXLl3e63jieGT7HsB9dH4R/Uttjion+uypbISF+zpXnOdTVbiNBvsdIQ==',
+  'buyer_id' => '2088102180499233',
+  'invoice_amount' => '24145.00',
+  'version' => '1.0',
+  'notify_id' => '2020102800222100139099230514665946',
+  'fund_bill_list' => '[{"amount":"24145.00","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'out_trade_no' => '1603850474549433',
+  'total_amount' => '24145.00',
+  'trade_status' => 'TRADE_SUCCESS',
+  'trade_no' => '2020102822001499230504812300',
+  'auth_app_id' => '2016101900723516',
+  'receipt_amount' => '24145.00',
+  'point_amount' => '0.00',
+  'app_id' => '2016101900723516',
+  'buyer_pay_amount' => '24145.00',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088102180286703',
+)

@@ -37,7 +37,6 @@
 								</a>
 								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
 									<p>"啊哦，你的购物车还没有商品哦！"</p>
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
 								</div>
 							</div>
 						</div>
@@ -64,3 +63,22 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				url : '/getheadcart',
+				dataType:'json',
+				type:'get',
+				data : '',
+				success:function(res){
+					if(res.code==0){
+						$(".shopnum").html(res.count);
+						$("p").html('您的购物车中有'+res.count+'件商品');			
+					}else{
+						$("p").html(res.msg);
+					}
+				}
+			});
+		})
+		</script>

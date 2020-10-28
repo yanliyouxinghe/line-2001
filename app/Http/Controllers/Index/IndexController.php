@@ -42,18 +42,20 @@ class IndexController extends Controller
 
       
 
-       
-        
-       public function cart_goods(){
+       public function getheadcart(){
         $user_id = session()->get('user_id');
         if(!$user_id){
-
+            return json_encode(['code'=>3,'msg'=>'未登录，请先登录']);die;
         }
-        $cart =  CartModel::where('user_id',$user_id)->get();
         $count = CartModel::where('user_id',$user_id)->count();
-        
+        if($count==0){
+            return json_encode(['code'=>3,'msg'=>'你的购物车还没有商品哦']);die;
+        }else{
+            return json_encode(['code'=>0,'msg'=>'OK','count'=>$count]);die;
+        }
 
-        return view('layout.head',['cart'=>$cart,'count'=>$count]);
+
+       
        }
         
        
