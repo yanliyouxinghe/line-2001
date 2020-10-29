@@ -74,24 +74,14 @@
 				</div>
 				<div class="yui3-u Right">
 					<div class="news">
-						<h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
+						<h4><em class="fl">品优购快报</em></a href="#"><span class="fr tip">更多 ></span></a></h4>
 						<div class="clearix"></div>
 						<ul class="news-list unstyled">
+						@foreach($bulletin as $v)
 							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
+							<span class="bold" id="{{$v['bulletin_id']}}">[{{$v['bulletin_title']}}]</span><a href="#">{{$v['bulletin_desc']}}</a>
 							</li>
-							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
-							</li>
+						@endforeach
 						</ul>
 					</div>
 					<ul class="yui3-g Lifeservice">
@@ -206,7 +196,7 @@
 							<dd>
 								<a href="/particulars/{{$v->goods_id}}" class="pic"><img src="{{env('APP_URL').$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
-									<p>{{$v->goods_name}}</p>
+									<p>{{$v->keywords}}</p>
 									<h3>¥{{$v->shop_price}}</h3>
 								</div>
 							</dd>
@@ -295,14 +285,11 @@
 					<div class="yui3-g Floor-1">
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
-								<li>节能补贴</li>
-								<li>4K电视</li>
-								<li>空气净化器</li>
-								<li>IH电饭煲</li>
-								<li>滚筒洗衣机</li>
-								<li>电热水器</li>
+							@include('Index.index.ads.9');
+
 							</ul>
-							<img src="/static/img/floor-1-1.png" />
+							@include('Index.index.ads.10');
+							
 						</div>
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -329,22 +316,27 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-2.png" />
+							@include('Index.index.ads.12');
+								
 							</div>
 							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-3.png" />
+							@include('Index.index.ads.13');
+
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="/static/img/floor-1-4.png" />
+						@include('Index.index.ads.14');
+
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-5.png" />
+							@include('Index.index.ads.15');
+
 							</div>
-							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-6.png" />
+							<div class="floor-conver-pit">				
+									@include('Index.index.ads.16');
+
 							</div>
 						</div>
 					</div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\GoodsModel;
 use App\Model\CategoryModel;
 use App\Model\CartModel;
+use App\Model\Bulllentin;
 
 use Illuminate\Support\Facades\Redis;
 class IndexController extends Controller
@@ -25,7 +26,15 @@ class IndexController extends Controller
             $is_new = $goodsModel->Isnew();
             //猜你喜欢
             $islove = $goodsModel->Islove();
-            return view('Index.index.index',['goods'=>$goods,'tree'=>$tree,'is_new'=>$is_new,'islove'=>$islove]);
+            //快报
+            $bulletin = $this->bulletin();
+            $bulletin_data = [];
+            foreach($bulletin as $v){
+                $bulletin_desc = $v['bulletin_desc'];
+                $v['bulletin_desc'] = mb_substr($bulletin_desc,0,14)."...";
+                $bulletin_data[] = $v;
+            }
+            return view('Index.index.index',['goods'=>$goods,'tree'=>$tree,'is_new'=>$is_new,'islove'=>$islove,'bulletin'=>$bulletin_data]);
         }
 
         //无限极分类
@@ -55,9 +64,16 @@ class IndexController extends Controller
         }
 
 
+        //快报
+        
        
        }
         
-       
+       public function bulletin(){
+        $Bulllentin  = new Bulllentin();
+        $bull = $Bulllentin->orderBy('bulletin_id','desc')->take(5)->get()->toArray();
+        return $bull;
+       }
+
     
 }

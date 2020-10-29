@@ -38,10 +38,7 @@ class HomeController extends Controller
 			// 		$v['goods'] = $vv;
 			// 	}
 			// }
-			
-			
 		}
-		// dd($order_goods);
     	return view('Index.home.myorder',['user_name'=>$user_name,'order_goods'=>$order_goods]);
     }
 }

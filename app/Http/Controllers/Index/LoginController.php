@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use AlibabaCloud\Client\AlibabaCloud;
 use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
+use App\Common\jwt;
 class LoginController extends Controller
 {
     
@@ -145,6 +146,51 @@ class LoginController extends Controller
         public function logout(){
             request()->session()->forget(['user_id', 'user_name','user_plone']);
             return redirect('/login');
+        }
+
+
+
+
+
+
+        //apilogin
+        public function apilogin(Request $request){
+            $user_name = request()->input('user_name');
+            $user_pwd = request()->input('user_pwd');
+            if(!$user_name || !$user_pwd){
+               $requestop = [
+                   'code' => '1',
+                   'msg' => '用户名或密码不能为空',
+               ];
+               return json_encode($requestop);
+            }
+            $u = UserModel::where(['user_name'=>$user_name])->first();
+            // dd($u);
+            if(!$u){
+                $requestop = [
+                    'code' => '2',
+                    'msg' => '用户名不存在',
+                ];
+                return json_encode($requestop);
+            }
+             $res = password_verify($user_pwd,$u->user_pwd);
+             if(!$res){
+                $requestop = [
+                    'code' => '3',
+                    'msg' => '密码错误，请重试',
+                     ];
+                     return json_encode($requestop);
+             }else{
+                    //  $requestop = [
+                    //     'code' => '0',
+                    //     'msg' => 'OK',
+                    // ];   
+                    // return json_encode($requestop);
+                    $aaa = jwt::instance()->encode();
+                    return $aaa;
+             }
+                   
+            
         }
 
 }

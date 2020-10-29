@@ -36,7 +36,7 @@
 									<i class="shopnum">0</i>
 								</a>
 								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
+									<p class="class_p">"啊哦，你的购物车还没有商品哦！"</p>
 								</div>
 							</div>
 						</div>
@@ -74,9 +74,9 @@
 				success:function(res){
 					if(res.code==0){
 						$(".shopnum").html(res.count);
-						$("p").html('您的购物车中有'+res.count+'件商品');			
+						$(".class_p").html('您的购物车中有'+res.count+'件商品');			
 					}else{
-						$("p").html(res.msg);
+						$(".class_p").html(res.msg);
 					}
 				}
 			});

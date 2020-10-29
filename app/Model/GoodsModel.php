@@ -35,7 +35,7 @@ class GoodsModel extends Model
 
         //猜你喜欢
         public function Islove(){
-            $love = GoodsModel::orderBy('goods_id','desc')
+            $love = GoodsModel::orderBy('goods_id','asc')
                     ->take('6')
                     ->get();
             return $love;
