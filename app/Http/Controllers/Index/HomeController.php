@@ -26,19 +26,17 @@ class HomeController extends Controller
 		$order_goods = [];
 		foreach($orders as $v){
 			$v['goods'] = Ordergoods::select('order_goods.*','ecs_goods.goods_thumb')->leftjoin('ecs_goods','order_goods.goods_id','=','ecs_goods.goods_id')->where('order_goods.order_id',$v['order_id'])->get()->toArray();
+			foreach ($v['goods'] as $key => $value) {
+				// dd($key);
+				if($value['goods_attr_id'] != ""){
+					$goods_attr_id = explode('|', $value['goods_attr_id']);
+					$value['goods_attr'] = GoodsAttr::select('attr_value')->whereIn('goods_attr_id',$goods_attr_id)->get()->toArray();
+					$v['goods'][$key] = $value;
+				}
+			}
 			$order_goods[] = $v;
-			// foreach($v['goods'] as $kk=>$vv){
-			// 	if($vv['goods_attr_id']){
-			// 		$goods_attr_id = explode('|',$vv['goods_attr_id']);
-			// 		$goods_attr = GoodsAttr::select('attr_name','attr_value')
-			// 					->leftjoin('attribute','ecs_goods_attr.attr_id','attribute.attr_id')
-			// 					->where('goods_attr_id',$goods_attr_id)
-			// 					->get();
-			// 		$vv['goods_attr']=$goods_attr?$goods_attr->toArray():[];
-			// 		$v['goods'] = $vv;
-			// 	}
-			// }
 		}
-    	return view('Index.home.myorder',['user_name'=>$user_name,'order_goods'=>$order_goods]);
+		// dd($order_goods);
+		return view('Index.home.myorder',['user_name'=>$user_name,'order_goods'=>$order_goods]);
     }
 }

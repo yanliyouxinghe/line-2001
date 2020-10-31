@@ -188,7 +188,7 @@ class CartController extends Controller
           public function love($user_id){
             $goods_id = CartModel::where('user_id',$user_id)->select('goods_id')->get();
             $cat_id = GoodsModel::whereIn('goods_id',$goods_id)->select('cat_id')->get();
-            $lovegoods = GoodsModel::whereIn('cat_id',$cat_id)->get()->toArray();
+            $lovegoods = GoodsModel::whereIn('cat_id',$cat_id)->take(4)->get()->toArray();
             return $lovegoods;
           }
 

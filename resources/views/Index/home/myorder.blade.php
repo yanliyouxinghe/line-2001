@@ -125,7 +125,7 @@ $(function(){
 								@foreach($order_goods as $v)
                                 <div class="choose-title">
                                     <label data-toggle="checkbox" class="checkbox-pretty ">
-                                           <input type="checkbox" checked="checked"><span>{{date('Y-m-d H:i:s',$v['addtime'])}}　订单编号：{{$v['order_sn']}}  店铺：哇哈哈 <a>和我联系</a></span>
+                                           <input type="checkbox" checked="checked"><span>{{date('Y-m-d H:i:s',$v['addtime'])}}　订单编号：{{$v['order_sn']}} </span>
                                      </label>
 									  <a class="sui-btn btn-info share-btn">分享</a>
                                 </div>
@@ -136,7 +136,13 @@ $(function(){
                                             <td width="35%">
                                                 <div class="typographic"><img src="{{$vv['goods_thumb']}}" width="82px" height="82px"/>
                                                     <a href="#" class="block-text">{{$vv['goods_name']}}</a>
-                                                    <span class="guige">规格：温泉喷雾150ml</span>
+                                                    <span class="guige">
+                                                        @if(count($vv)==12)
+                                                        @foreach($vv['goods_attr'] as $val)
+                                                            {{$val['attr_value']}}
+                                                        @endforeach
+                                                        @endif
+                                                    </span>
                                                 </div>
                                             </td>
                                             <td width="5%" class="center">
